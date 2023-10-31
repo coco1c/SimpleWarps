@@ -1,0 +1,14 @@
+name: Warp
+version: '${project.version}'
+main: com.coco.Warp
+api-version: '1.17'
+author: Coco
+description: A simple warp plugin
+commands:
+  warp:
+    description: Warp command
+    aliases: [w]
+  setwarp:
+    description: Set warp command
+    aliases: [sw]
+

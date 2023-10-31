@@ -1,0 +1,4 @@
+com\coco\Warp.class
+com\coco\Util\PluginConfig.class
+com\coco\Commands\setwarp.class
+com\coco\Commands\warp.class
