@@ -1,14 +1,20 @@
-name: Warp
-version: '${project.version}'
-main: com.coco.Warp
+name: SimpleWarps
+version: 1.0.0
+main: com.coco.WarpMain
 api-version: '1.17'
 author: Coco
-description: A simple warp plugin
+description: A simple Warp plugin
 commands:
   warp:
     description: Warp command
     aliases: [w]
   setwarp:
-    description: Set warp command
+    description: Set Warp command
     aliases: [sw]
+  warps:
+    description: Warp menu command
+    aliases: [ws, wm]
+  warpall:
+    description: Teleport all the players to a warp
+    aliases: [wa]
 

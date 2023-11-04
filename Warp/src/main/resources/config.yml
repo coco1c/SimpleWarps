@@ -1,1 +1,33 @@
+Messages:
+  no_permission: '&cYou do not have permission to use this command.'
+  warp_invalid: '&cWarp does not exist.'
+  warp_exists: '&cWarp already exists.' ## You can use {warp} to show the warp name
+  warp_set: '&aWarp set to the current location.' ## You can use {warp} to show the warp name
+  warp_deleted: '&aWarp deleted.' ## You can use {warp} to show the warp name
+  warp_teleport_in_progress: "&cYou're already teleporting to a warp."
+  warp_teleport_cancelled: '&cWarp teleport cancelled.'
+  warp_in_progress: '&aTeleporting to {warp} in {cooldown} seconds.' ## You can use {warp} to show the warp name and {cooldown} to show the seconds
+  warp_teleport_after_teleport: '&aYou have been teleported to {warp}.' ## You can use {warp} to show the warp name
+  warp_cancelled: '&cTeleport cancelled due to movement!'
+
+##Plugin Data
+warp_settings:
+  cooldown: 5  # Cooldown for warp usage in seconds
+
+## GUI settings
+warp_menu:
+  size: 54
+  title: 'Warps Menu'
+  enable: false  # Enable this menu only if you have at least one warp set
+  warps:
+    1:
+      material: 'GRASS_BLOCK'
+      name: '&cWarp'
+      slot: 1
+      ignored: false # If you want to ignore this item in the menu and only to be for decoration
+      warp_name: "warp1"
+      lore:
+          - '&cWarps' ## You can use {warp} to show the warp name
+
+##You can change here the coords of all the warps/ delete warps/ add warps
 warps:
