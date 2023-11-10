@@ -31,3 +31,15 @@ Afterward, grant the players you want the permission warp.teleport.(warp name) s
 Once you've given all the players the necessary permissions, it's done. It's that easy!
 
 
+## Future Plans
+- Safety feature: If a warp is not safe and the player can get hurt during teleportation, provide a warning. Players can run a command to teleport anyway, or it won't work at all. The behavior can be configured in the config file.
+- Ability to force teleport only one player at a time.
+- Ability to allow/deny teleporting to a warp if the warp is located inside a WorldGuard region.
+- Random teleport command.
+- Home command and sethome.
+- Spawn and setspawn.
+- Admin GUI: Allow administrators to delete warps or change their names.
+- Update command: Enable changing the location or name of existing warps.
+
+
+
