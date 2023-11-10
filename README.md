@@ -43,7 +43,7 @@ Once you've given all the players the necessary permissions, it's done. It's tha
 
 
   ## Showcases
-Warp menu: ![image](https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/warpmenu1v2.png)https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/warpmenu1v2.png)
+Warp menu:![image](https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/warpmenu1v2.png)
   
 
 
