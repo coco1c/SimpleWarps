@@ -13,14 +13,14 @@
 </p>
 <br>
 
-The SimpleWarps plugin is a Minecraft plugin that enables players with the appropriate permissions to create public warps. Players with the warp permission can use the command '/warp (warp name)' to teleport to these locations. Admins have the additional ability to use '/warp (warp name) --force' to bypass the cooldown.
+The SimpleWarps plugin is a Minecraft plugin that enables players with the appropriate permissions to create public warps. Players with the warp permission can use the command `/warp (warp name)` to teleport to these locations. Admins have the additional ability to use `/warp (warp name) --force` to bypass the cooldown.
 
 Users, if granted permission, can access the warp menu (/warps) and teleport to specified warps listed in the config file. Additionally, you have the option to choose the particles and sound that will accompany the teleportation process.
 
 
 ## Features
 - Unlimited Warps
-- Ability to force teleport without a cooldown using '--force' as a parameter in the command
+- Ability to force teleport without a cooldown using `--force` as a parameter in the command
 - Support for Hex colors in all messages
 - 'Warp All' command allows teleporting all players to a specific warp! You can use /warpall (warp name) --force to force teleport players. The sender won't be teleported, as players with the bypass permission 'warp.teleport.all.byPass' are exempt.
 
@@ -40,6 +40,11 @@ Once you've given all the players the necessary permissions, it's done. It's tha
 - Spawn and setspawn.
 - Admin GUI: Allow administrators to delete warps or change their names.
 - Update command: Enable changing the location or name of existing warps.
+
+
+  ## Showcases
+Warp menu: ![image]([https://](https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/warpmenu1v2.png)https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/warpmenu1v2.png)
+  
 
 
 
