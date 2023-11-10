@@ -69,12 +69,5 @@
             <version>1.20.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>CocoLib</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/CocoLib-1.0.0.jar</systemPath>
-        </dependency>
     </dependencies>
 </project>

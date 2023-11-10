@@ -13,6 +13,7 @@ import java.util.Set;
 public class PluginConfig {
     FileConfiguration config;
     WarpMain main;
+    private boolean warpInProgress = false;
     public PluginConfig(WarpMain main) {
         this.main = main;
         config = main.getConfig();
@@ -51,17 +52,39 @@ public class PluginConfig {
     public int warpMenuSize() {
         return config.getInt("warp_menu.size");
     }
-    public List<ItemStack> items() {
-        return (List<ItemStack>) config.getList("warp_menu.warps");
-    }
     public int teleportCooldown() {
         return config.getInt("warp_settings.cooldown");
     }
     public Location warpLocation(String name) {
         return new Location(main.getServer().getWorld(config.getString("warps." + name + ".world")), getWarpX(name), getWarpY(name), getWarpZ(name));
     }
+    public void deleteWarp(String name) {
+        config.set("warps." + name, null);
+        main.saveConfig();
+    }
+    public String warpParticle() {
+        return config.getString("warp_settings.particle");
+    }
+    public int warpParticleAmount() {
+        return config.getInt("warp_settings.particle_amount");
+    }
+    public boolean warpParticleEnabled() {
+        return config.getBoolean("warp_settings.particle_enabled");
+    }
+    public int warpParticleLocationY() {
+        return config.getInt("warp_settings.particle_location_y");
+    }
+    public boolean warpSoundEnabled() {
+        return config.getBoolean("warp_settings.sound_enabled");
+    }
+    public String warpSound() {
+        return config.getString("warp_settings.sound");
+    }
     public String warpExistsMessage(String name) {
         return config.getString("Messages.warpExists").replace("{warp}", name);
+    }
+    public String delWarpMessage(String name) {
+        return config.getString("Messages.warp_deleted").replace("{warp}", name);
     }
     public String warpSetMessage(String name) {
         return config.getString("Messages.warp_set").replace("{warp}", name);
@@ -77,5 +100,18 @@ public class PluginConfig {
     }
     public String warpCancelledMessage() {
         return config.getString("Messages.warp_cancelled");
+    }
+    public String warpInProgressTryAgainMessage() {
+        return config.getString("Messages.warp_in_progress_try_again");
+    }
+    public boolean isWarpInProgress(){
+        return warpInProgress;
+    }
+    public void setWarpInProgress(boolean value) {
+        warpInProgress = value;
+    }
+    public void reloadAndLoadConfig() {
+        main.reloadConfig();
+        config = main.getConfig();
     }
 }

@@ -7,12 +7,19 @@ Messages:
   warp_teleport_in_progress: "&cYou're already teleporting to a warp."
   warp_teleport_cancelled: '&cWarp teleport cancelled.'
   warp_in_progress: '&aTeleporting to {warp} in {cooldown} seconds.' ## You can use {warp} to show the warp name and {cooldown} to show the seconds
+  warp_in_progress_try_again: '&cYou are already teleporting to a warp.'
   warp_teleport_after_teleport: '&aYou have been teleported to {warp}.' ## You can use {warp} to show the warp name
   warp_cancelled: '&cTeleport cancelled due to movement!'
 
 ##Plugin Data
 warp_settings:
   cooldown: 5  # Cooldown for warp usage in seconds
+  particle_enabled: true # Enable or disable particles when teleporting
+  particle: 'ASH' # Particle to show when teleporting
+  particle_amount: 100 # Amount of particles to show when teleporting
+  particle_location_y: 1.5 # Location of the particles when teleporting (based on the player location it will go up or down)
+  sound_enabled: true # Enable or disable sounds when teleporting
+  sound: 'ENTITY_ENDERMAN_TELEPORT' # Sound to play when teleporting
 
 ## GUI settings
 warp_menu:

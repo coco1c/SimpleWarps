@@ -5,6 +5,9 @@ api-version: '1.17'
 author: Coco
 description: A simple Warp plugin
 commands:
+  warpreload:
+    description: Reload the plugin
+    aliases: [wr]
   warp:
     description: Warp command
     aliases: [w]
@@ -17,4 +20,8 @@ commands:
   warpall:
     description: Teleport all the players to a warp
     aliases: [wa]
+  delwarp:
+    description: Delete a warp
+    aliases: [dw]
+
 

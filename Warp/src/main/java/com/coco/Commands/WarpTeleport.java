@@ -38,21 +38,22 @@ public class WarpTeleport implements CommandExecutor, TabCompleter {
         if (!player.hasPermission("warp.teleport." + args[0]) || !player.hasPermission("warp.teleport.*") || !player.hasPermission("warp.*")) {
             return true;
         }
-        if (args.length == 2){
-            if (args[1].equalsIgnoreCase("--force")){
-                if (player.hasPermission("warp.teleport" + args[0] + ".force") || player.hasPermission("warp.teleport.*.force") || player.hasPermission("warp.*")){
-                    main.pluginUtil.teleportPlayerToWarpForce(player, args[0]);
-                    return true;
-                }
+        if (args.length == 2) {
+            if (args[1].equalsIgnoreCase("--force")) {
+                if (player.hasPermission("warp.teleport" + args[0] + ".force") || player.hasPermission("warp.teleport.*.force") || player.hasPermission("warp.*")) {
                     main.pluginUtil.teleportPlayerToWarpForce(player, args[0]);
                     return true;
                 }
                 main.pluginUtil.teleportPlayerToWarpForce(player, args[0]);
                 return true;
             }
-        String name = args[0];
-        main.pluginUtil.teleportPlayerToWarp(player, name);
-        return true;
+            main.pluginUtil.teleportPlayerToWarpForce(player, args[0]);
+            return true;
+        } else {
+            String name = args[0];
+            main.pluginUtil.teleportPlayerToWarp(player, name);
+            return true;
+        }
     }
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
