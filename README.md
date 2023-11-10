@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img width=2500 height=160 src="https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/SimpleWarps.png">
+  <img width=2500 height=500 src="https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/SimpleWarpsBG.png">
   
 </h1>
 
@@ -16,10 +16,6 @@ The SimpleWarps plugin is a Minecraft plugin that enables players with the appro
 
 Users, if granted permission, can access the warp menu (/warps) and teleport to specified warps listed in the config file. Additionally, you have the option to choose the particles and sound that will accompany the teleportation process.
 
-<h1 align="center">
-  <img width=2500 height=500 src="https://github.com/coco1c/SimpleWarps/blob/main/Warp/images/SimpleWarpsBG.png">
-  
-</h1>
 
 ## Features
 - Unlimited Warps
