@@ -3,17 +3,20 @@ Messages:
   warp_invalid: '&cWarp does not exist.'
   warp_exists: '&cWarp already exists.' ## You can use {warp} to show the warp name
   warp_set: '&aWarp set to the current location.' ## You can use {warp} to show the warp name
+  warp_updated: '&aWarp updated to the current location.' ## You can use {warp} to show the warp name
   warp_deleted: '&aWarp deleted.' ## You can use {warp} to show the warp name
-  warp_teleport_in_progress: "&cYou're already teleporting to a warp."
+  warp_delete_all: '&aAll warps deleted.'
   warp_teleport_cancelled: '&cWarp teleport cancelled.'
   warp_in_progress: '&aTeleporting to {warp} in {cooldown} seconds.' ## You can use {warp} to show the warp name and {cooldown} to show the seconds
   warp_in_progress_try_again: '&cYou are already teleporting to a warp.'
   warp_teleport_after_teleport: '&aYou have been teleported to {warp}.' ## You can use {warp} to show the warp name
   warp_cancelled: '&cTeleport cancelled due to movement!'
+  warp_welcome_message: '&aWelcome to {warp}!' # # You can use {warp} to show the warp name
 
 ##Plugin Data
 warp_settings:
   cooldown: 5  # Cooldown for warp usage in seconds
+  warp_welcome_message_enabled: true # Enable or disable the welcome message when teleporting to a warp
   particle_enabled: true # Enable or disable particles when teleporting
   particle: 'ASH' # Particle to show when teleporting
   particle_amount: 100 # Amount of particles to show when teleporting

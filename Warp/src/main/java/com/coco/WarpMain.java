@@ -1,15 +1,11 @@
 package com.coco;
 
 import com.coco.Animation.TeleportAnimation;
-import com.coco.Events.FallDamage;
 import com.coco.Events.WarpmenuManager;
 import com.coco.GUI.WarpMenu;
 import com.coco.Util.Chat;
 import com.coco.Util.PluginConfig;
 import com.coco.Util.PluginUtil;
-import com.coco.Util.Timer;
-import org.bukkit.Bukkit;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.coco.Commands.*;
@@ -25,7 +21,6 @@ public final class WarpMain extends JavaPlugin {
     private OpenWarpMenu openWarpMenu;
     private WarpmenuManager warpmenuManager;
     private DelWarp delWarp;
-    private FallDamage fallDamage;
     public Chat chat;
     public WarpMenu warpMenu;
     public PluginUtil pluginUtil;
@@ -35,9 +30,15 @@ public final class WarpMain extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        getLogger().info("Starting Warp Plugin");
+        getLogger().info("Created by Coco");
+        getLogger().info("Version: " + getDescription().getVersion());
+        getLogger().info("Github: https://github.com/coco1c/SimpleWarps/");
+
         instance = this;
         saveDefaultConfig();
         config = getConfig();
+        getLogger().info("Loaded Config");
         reloadCommand = new ReloadCommand(this);
         pluginConfig = new PluginConfig(this);
         setwarp = new SetWarp(this);
@@ -49,9 +50,8 @@ public final class WarpMain extends JavaPlugin {
         warpmenuManager = new WarpmenuManager(this);
         warpall = new WarpAll(this);
         delWarp = new DelWarp(this);
-        fallDamage = new FallDamage(this);
         animation = new TeleportAnimation(this);
-
+        getLogger().info("Starting loading commands and events");
         // Tab Completers
         getCommand("warp").setTabCompleter(warp);
         getCommand("warpall").setTabCompleter(warp);
@@ -64,7 +64,8 @@ public final class WarpMain extends JavaPlugin {
         getCommand("delwarp").setExecutor(delWarp);
         // Events
         getServer().getPluginManager().registerEvents(warpmenuManager, this);
-        getServer().getPluginManager().registerEvents(fallDamage, this);
+        getLogger().info("Loaded commands and events");
+        getLogger().info("Warp Plugin has been enabled!");
 
     }
 

@@ -7,4 +7,5 @@ public interface IPluginUtil {
     void teleportPlayerToWarp(Player player, String warpName);
     void teleportPlayerToWarpForce(Player player, String warpName);
     void sendConsoleMessage(String message);
+    void sendWarpWelcomeMessage(Player player, String warpName);
 }

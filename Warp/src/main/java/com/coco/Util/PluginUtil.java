@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 
 public class PluginUtil implements IPluginUtil {
     private WarpMain main;
+
     public PluginUtil(WarpMain main) {
         this.main = main;
     }
@@ -17,7 +18,7 @@ public class PluginUtil implements IPluginUtil {
             return;
         }
         if (main.pluginConfig.isWarpInProgress()) {
-            main.chat.sendMessage(player, main.pluginConfig.warpInProgressMessage(warpName));
+            main.chat.sendMessage(player, main.pluginConfig.warpInProgressTryAgainMessage());
             return;
         }
         main.chat.sendMessage(player, main.pluginConfig.warpInProgressMessage(warpName));
@@ -29,6 +30,7 @@ public class PluginUtil implements IPluginUtil {
             player.teleport(main.pluginConfig.warpLocation(warpName));
             main.pluginConfig.setWarpInProgress(false);
             main.chat.sendMessage(player, main.pluginConfig.warpTeleportMessageAfterTeleport(warpName));
+            sendWarpWelcomeMessage(player, warpName);
         }, () -> {
             main.animation.spawnParticles(player);
             main.animation.playSound(player);
@@ -55,5 +57,9 @@ public class PluginUtil implements IPluginUtil {
         main.getLogger().info(message);
     }
 
-
+    @Override
+    public void sendWarpWelcomeMessage(Player player, String warpName) {
+        if (main.pluginConfig.isWarpWelcomeMessageEnabled())
+        main.chat.sendMessage(player, main.pluginConfig.warpWelcomeMessage().replace("{warp}", warpName));
+    }
 }

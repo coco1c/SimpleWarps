@@ -35,10 +35,8 @@ public class DelWarp implements CommandExecutor {
                 main.chat.sendMessage(player, "&cYou do not have permission to delete all warps!");
                 return true;
             }
-            for (String warpName : main.pluginConfig.getAllWarps()) {
-                main.pluginConfig.deleteWarp(warpName);
-            }
-            main.chat.sendMessage(player, main.pluginConfig.getAllWarps().toString());
+            main.pluginConfig.deleteAllWarps();
+            main.chat.sendMessage(player, main.pluginConfig.delAllWarpsMessage());
             return true;
         }
         if (!main.pluginConfig.checkWarp(name)) {

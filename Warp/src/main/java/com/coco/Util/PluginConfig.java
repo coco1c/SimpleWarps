@@ -21,19 +21,27 @@ public class PluginConfig {
     public boolean checkWarp(String name) {
         return config.contains("warps." + name);
     }
-    public int getWarpX(String name) {
-        return config.getInt("warps." + name + ".x");
+    public double getWarpX(String name) {
+        return config.getDouble("warps." + name + ".x");
     }
-    public int getWarpY(String name) {
-        return config.getInt("warps." + name + ".y");
+    public double getWarpY(String name) {
+        return config.getDouble("warps." + name + ".y");
     }
-    public int getWarpZ(String name) {
-        return config.getInt("warps." + name + ".z");
+    public double getWarpZ(String name) {
+        return config.getDouble("warps." + name + ".z");
     }
-    public void setWarp(String name, int x, int y, int z, String world) {
+    public float getWarpPitch(String name) {
+        return (float) config.getDouble("warps." + name + ".pitch");
+    }
+    public float getWarpYaw(String name) {
+        return (float) config.getDouble("warps." + name + ".yaw");
+    }
+    public void setWarp(String name, double x, double y, double z, float pitch, float yaw ,String world) {
         config.set("warps." + name + ".x", x);
         config.set("warps." + name + ".y", y);
         config.set("warps." + name + ".z", z);
+        config.set("warps." + name + ".pitch", pitch);
+        config.set("warps." + name + ".yaw", yaw);
         config.set("warps." + name + ".world", world);
         main.saveConfig();
     }
@@ -56,10 +64,14 @@ public class PluginConfig {
         return config.getInt("warp_settings.cooldown");
     }
     public Location warpLocation(String name) {
-        return new Location(main.getServer().getWorld(config.getString("warps." + name + ".world")), getWarpX(name), getWarpY(name), getWarpZ(name));
+        return new Location(main.getServer().getWorld(config.getString("warps." + name + ".world")), getWarpX(name), getWarpY(name), getWarpZ(name), getWarpYaw(name), getWarpPitch(name));
     }
     public void deleteWarp(String name) {
         config.set("warps." + name, null);
+        main.saveConfig();
+    }
+    public void deleteAllWarps() {
+        config.set("warps", null);
         main.saveConfig();
     }
     public String warpParticle() {
@@ -92,6 +104,9 @@ public class PluginConfig {
     public String warpTeleportMessageAfterTeleport(String name) {
         return config.getString("Messages.warp_teleport_after_teleport").replace("{warp}", name);
     }
+    public String warpUpdatedMessage(String name) {
+        return config.getString("Messages.warp_updated").replace("{warp}", name);
+    }
     public String warpInProgressMessage(String name) {
         return config.getString("Messages.warp_in_progress").replace("{warp}", name).replace("{cooldown}", String.valueOf(teleportCooldown()));
     }
@@ -104,11 +119,51 @@ public class PluginConfig {
     public String warpInProgressTryAgainMessage() {
         return config.getString("Messages.warp_in_progress_try_again");
     }
+    public String delAllWarpsMessage() {
+        return config.getString("Messages.warp_delete_all");
+    }
+    public String getWarpWorld(String name) {
+        return config.getString("warps." + name + ".world");
+    }
+    public String getWarpLocation(String name, String xColor, String yColor, String zColor, String worldColor) {
+        return xColor + getWarpX(name) + yColor + ", " + getWarpY(name) + zColor + ", " + getWarpZ(name) + worldColor + " (" + getWarpWorld(name) + ")";
+    }
+    public String warpWelcomeMessage() {
+        return config.getString("Messages.warp_welcome_message");
+    }
+    public boolean isWarpWelcomeMessageEnabled() {
+        return config.getBoolean("warp_settings.warp_welcome_message_enabled");
+    }
     public boolean isWarpInProgress(){
         return warpInProgress;
     }
     public void setWarpInProgress(boolean value) {
         warpInProgress = value;
+    }
+    public void updateWarp(String warpName, Location location) {
+        config.set("warps." + warpName + ".x", location.getX());
+        config.set("warps." + warpName + ".y", location.getY());
+        config.set("warps." + warpName + ".z", location.getZ());
+        config.set("warps." + warpName + ".pitch", location.getPitch());
+        config.set("warps." + warpName + ".yaw", location.getYaw());
+        config.set("warps." + warpName + ".world", location.getWorld().getName());
+        main.saveConfig();
+    }
+    public void updateWarp(String warpName, double x, double y, double z, float pitch, float yaw, String world) {
+        config.set("warps." + warpName + ".x", x);
+        config.set("warps." + warpName + ".y", y);
+        config.set("warps." + warpName + ".z", z);
+        config.set("warps." + warpName + ".pitch", pitch);
+        config.set("warps." + warpName + ".yaw", yaw);
+        config.set("warps." + warpName + ".world", world);
+        main.saveConfig();
+    }
+    public void updateWarp(String warpName, double x, double y, double z, String world) {
+        config.set("warps." + warpName + ".x", x);
+        config.set("warps." + warpName + ".y", y);
+        config.set("warps." + warpName + ".z", z);
+        config.set("warps." + warpName + ".world", world);
+        main.saveConfig();
     }
     public void reloadAndLoadConfig() {
         main.reloadConfig();
